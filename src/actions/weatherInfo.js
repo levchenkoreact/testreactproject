@@ -2,10 +2,10 @@ import * as types from '../constants';
 import {getWeatherInfo} from '../requests';
 import {errorMessages} from '../constants';
 
-export const getWeatherInfoAction = () => {
+export const getWeatherInfoAction = (props) => {
     return (dispatch, getState) => {
         dispatch({type: types.actionTypes.GET_WEATHER_REQUEST.START});
-        getWeatherInfo().then(
+        getWeatherInfo(props).then(
             (result) => {
                 if (result) {
                     dispatch(getWeatherInfoSuccess(result));
