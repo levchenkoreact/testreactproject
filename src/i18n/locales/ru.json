@@ -1,5 +1,6 @@
 {
   "headerTitle": {
-    "weatherInfoScreen": "Weather Info"
+    "weatherInfoScreen": "Weather Info",
+    "weatherForecastScreen": "Weather Forecast"
   }
 }

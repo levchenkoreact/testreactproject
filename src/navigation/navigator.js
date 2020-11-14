@@ -13,7 +13,7 @@ const Stack = createStackNavigator();
 export default function Navigator() {
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            <Stack.Navigator initialRouteName={routes.WEATHER_FORECAST}>
                 <Stack.Screen
                     name={routes.WEATHER_INFO}
                     component={WeatherInfoScreen}
@@ -22,7 +22,13 @@ export default function Navigator() {
                         headerBackTitle: ' ',
                     }}
                 />
-                <Stack.Screen name={routes.WEATHER_FORECAST} component={WeatherForecastScreen}/>
+                <Stack.Screen
+                    name={routes.WEATHER_FORECAST}
+                    component={WeatherForecastScreen}
+                    options={{
+                        headerTitle: i18n.strings('headerTitle.weatherForecastScreen'),
+                        headerBackTitle: ' ',
+                    }}/>
             </Stack.Navigator>
         </NavigationContainer>
     );

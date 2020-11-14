@@ -30,8 +30,6 @@ export default function WeatherInfoScreen(props) {
         shallowEqual,
     );
 
-    console.log(isLoading);
-
     const dispatch = useDispatch();
 
     React.useEffect(() => {
