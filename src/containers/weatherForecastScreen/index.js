@@ -26,13 +26,15 @@ export default function WeatherForecastScreen(props) {
         </View>;
     };
 
-    const forecastItem = () => {
+    const forecastItem = ({item}) => {
         return <View>
             <Text>21:00</Text>
             <Image
                 style={styles.bigImage}
                 source={{uri: 'https://cdn.jpegmini.com/user/images/slider_puffin_before_mobile.jpg'}}
             />
+            <Text>Clouds</Text>
+            <Text>2.2/2.2*C</Text>
         </View>;
     };
 

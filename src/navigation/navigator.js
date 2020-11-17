@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import routes from './routes';
 import * as i18n from '../i18n';
@@ -9,27 +9,33 @@ import * as i18n from '../i18n';
 import WeatherInfoScreen from '../containers/weatherInfoScreen';
 import WeatherForecastScreen from '../containers/weatherForecastScreen';
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
 export default function Navigator() {
     return (
         <NavigationContainer>
-            <Stack.Navigator initialRouteName={routes.WEATHER_FORECAST}>
-                <Stack.Screen
+            <Tab.Navigator
+                activeColor="#f0edf6"
+                inactiveColor="#3e2465"
+                barStyle={{ backgroundColor: '#694fad',  paddingBottom: 48, marginBottom: 48  }}
+            >
+                <Tab.Screen
                     name={routes.WEATHER_INFO}
                     component={WeatherInfoScreen}
                     options={{
                         headerTitle: i18n.strings('headerTitle.weatherInfoScreen'),
                         headerBackTitle: ' ',
+
                     }}
                 />
-                <Stack.Screen
+                <Tab.Screen
                     name={routes.WEATHER_FORECAST}
                     component={WeatherForecastScreen}
                     options={{
                         headerTitle: i18n.strings('headerTitle.weatherForecastScreen'),
                         headerBackTitle: ' ',
                     }}/>
-            </Stack.Navigator>
+            </Tab.Navigator>
         </NavigationContainer>
     );
 }

@@ -1,6 +1,6 @@
 const routes = {
-    WEATHER_INFO: 'WEATHER_INFO_SCREEN',
-    WEATHER_FORECAST: 'WEATHER_FORECAST'
+    WEATHER_INFO: 'Weather Info',
+    WEATHER_FORECAST: 'Weather Forecast'
 };
 
 export default routes
