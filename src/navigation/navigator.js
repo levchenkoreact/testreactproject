@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import routes from './routes';
@@ -16,16 +15,17 @@ const Tab = createBottomTabNavigator();
 export default function Navigator() {
     return (
         <NavigationContainer>
-            <Tab.Navigator>
+            <Tab.Navigator
+                tabBarOptions={{
+                    activeTintColor: '#e91e63',
+                }}>
                 <Tab.Screen
                     name={routes.WEATHER_INFO}
                     component={WeatherInfoScreen}
                     options={{
                         headerTitle: i18n.strings('headerTitle.weatherInfoScreen'),
-                        headerBackTitle: ' ',
-                        tabBarLabel: 'Home',
                         tabBarIcon: ({color, size}) => (
-                            <MaterialCommunityIcons name="home" color={color} size={size}/>
+                            <MaterialCommunityIcons name="weather-cloudy" color={color} size={size}/>
                         ),
                     }}/>
                 <Tab.Screen
@@ -33,7 +33,9 @@ export default function Navigator() {
                     component={WeatherForecastScreen}
                     options={{
                         headerTitle: i18n.strings('headerTitle.weatherForecastScreen'),
-                        headerBackTitle: ' ',
+                        tabBarIcon: ({color, size}) => (
+                            <MaterialCommunityIcons name="clipboard-list" color={color} size={size}/>
+                        ),
                     }}/>
             </Tab.Navigator>
         </NavigationContainer>
