@@ -7,8 +7,6 @@ import {useSelector, shallowEqual} from 'react-redux';
 import {useDispatch} from 'react-redux';
 import {getWeatherInfoAction} from '../../actions/weatherInfo';
 
-import routes from '../../navigation/routes';
-import * as i18n from '../../i18n';
 import styles from './styles';
 import {formatMillisecondsToTime} from '../../utils/utils';
 
@@ -16,15 +14,13 @@ const cityName = 'Minsk';
 const units = 'metric';
 const apiKey = '0ac8d7aaee48212323ef27b26fc6a0e4';
 
-export default function WeatherInfoScreen(props) {
-    const {navigation} = props;
+export default function WeatherInfoScreen() {
     //Single Object
     const {
         isLoading, name, currentTime, weatherType, weatherIconUrl, temp, windSpeed, humidity, deg, sunrise, sunset,
     } = useSelector(
         ({
              weatherInfo: {isLoading, name, currentTime, weatherType, weatherIconUrl, temp, windSpeed, humidity, deg, sunrise, sunset},
-             weatherForecast: {},
          }) => ({
             isLoading, name, currentTime, weatherType, weatherIconUrl, temp, windSpeed, humidity, deg, sunrise, sunset,
         }),
@@ -32,7 +28,6 @@ export default function WeatherInfoScreen(props) {
     );
 
     const dispatch = useDispatch();
-
     React.useEffect(() => {
         dispatch(getWeatherInfoAction({cityName, units, apiKey}));
     }, [dispatch]);

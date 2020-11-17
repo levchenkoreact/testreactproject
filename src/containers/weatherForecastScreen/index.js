@@ -1,7 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
+import ActivityIndicator from '../../components/activityIndicator';
+
+import {useSelector, shallowEqual} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {getWeatherForecastAction} from '../../actions/weatherForecast';
+
 import {Image, Text, View, FlatList, SafeAreaView} from 'react-native';
 
 import styles from './styles';
+import {formatMillisecondsToTime} from '../../utils/utils';
+
+const cityName = 'Minsk';
+const units = 'metric';
+const apiKey = '0ac8d7aaee48212323ef27b26fc6a0e4';
 
 export default function WeatherForecastScreen(props) {
 

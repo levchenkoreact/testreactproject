@@ -1,16 +1,16 @@
-import * as types from '../constants';
+import * as types from '../constants/actionTypes';
 import {getWeatherForecast} from '../requests';
-import {errorMessages} from '../constants';
+import {ERROR} from '../constants/errorMessages';
 
 export const getWeatherForecastAction = (props) => {
     return (dispatch, getState) => {
-        dispatch({type: types.actionTypes.GET_WEATHER_REQUEST.START});
+        dispatch({type: types.GET_WEATHER_REQUEST.START});
         getWeatherForecast(props).then(
             (result) => {
                 if (result) {
                     dispatch(getWeatherForecastSuccess(result));
                 } else {
-                    dispatch(getWeatherForecastError(errorMessages.ERROR));
+                    dispatch(getWeatherForecastError(ERROR));
                 }
             },
             (error) => {
@@ -22,13 +22,13 @@ export const getWeatherForecastAction = (props) => {
 
 export const getWeatherForecastSuccess = (result) => {
     return {
-        type: types.actionTypes.GET_WEATHER_REQUEST.SUCCESS,
+        type: types.GET_WEATHER_REQUEST.SUCCESS,
         result,
     };
 };
 
 export const getWeatherForecastError = (error) => {
     return {
-        type: types.actionTypes.GET_WEATHER_REQUEST.FAILURE,
+        type: types.GET_WEATHER_REQUEST.FAILURE,
     };
 };
