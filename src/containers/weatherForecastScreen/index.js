@@ -15,6 +15,7 @@ const units = 'metric';
 const apiKey = '0ac8d7aaee48212323ef27b26fc6a0e4';
 
 export default function WeatherForecastScreen(props) {
+    const [forecastData, setForecastData] = useState([]);
 
     const MOCK_DATA = [
         {

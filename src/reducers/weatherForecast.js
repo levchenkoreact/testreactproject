@@ -7,17 +7,17 @@ let initialState = {
 
 const weatherForecast = (state = initialState, action) => {
     switch (action.type) {
-        case types.GET_WEATHER_REQUEST.START:
+        case types.GET_FORECAST_REQUEST.START:
             return {
                 ...state,
                 isLoading: true,
             };
-        case types.GET_WEATHER_REQUEST.SUCCESS:
+        case types.GET_FORECAST_REQUEST.SUCCESS:
             return {
                 ...state,
                 isLoading: false,
             };
-        case types.GET_WEATHER_REQUEST.FAILURE:
+        case types.GET_FORECAST_REQUEST.FAILURE:
             return {
                 ...state,
                 error: action.error,

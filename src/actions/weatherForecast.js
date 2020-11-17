@@ -4,7 +4,7 @@ import {ERROR} from '../constants/errorMessages';
 
 export const getWeatherForecastAction = (props) => {
     return (dispatch, getState) => {
-        dispatch({type: types.GET_WEATHER_REQUEST.START});
+        dispatch({type: types.GET_FORECAST_REQUEST.START});
         getWeatherForecast(props).then(
             (result) => {
                 if (result) {
@@ -22,13 +22,13 @@ export const getWeatherForecastAction = (props) => {
 
 export const getWeatherForecastSuccess = (result) => {
     return {
-        type: types.GET_WEATHER_REQUEST.SUCCESS,
+        type: types.GET_FORECAST_REQUEST.SUCCESS,
         result,
     };
 };
 
 export const getWeatherForecastError = (error) => {
     return {
-        type: types.GET_WEATHER_REQUEST.FAILURE,
+        type: types.GET_FORECAST_REQUEST.FAILURE,
     };
 };
