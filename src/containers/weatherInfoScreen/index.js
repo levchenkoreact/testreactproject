@@ -23,7 +23,8 @@ export default function WeatherInfoScreen(props) {
         isLoading, name, currentTime, weatherType, weatherIconUrl, temp, windSpeed, humidity, deg, sunrise, sunset,
     } = useSelector(
         ({
-             isLoading, name, currentTime, weatherType, weatherIconUrl, temp, windSpeed, humidity, deg, sunrise, sunset,
+             weatherInfo: {isLoading, name, currentTime, weatherType, weatherIconUrl, temp, windSpeed, humidity, deg, sunrise, sunset},
+             weatherForecast: {},
          }) => ({
             isLoading, name, currentTime, weatherType, weatherIconUrl, temp, windSpeed, humidity, deg, sunrise, sunset,
         }),
@@ -37,7 +38,7 @@ export default function WeatherInfoScreen(props) {
     }, [dispatch]);
 
     const temperature = () => {
-        const {currentTemp, tempMin, tempMax, tempFeelsLike} = temp
+        const {currentTemp, tempMin, tempMax, tempFeelsLike} = temp;
         return <View style={styles.secondaryContainerSpaceBetween}>
             <View style={styles.secondarySubContainer}>
                 <Text style={styles.bigText}>{currentTemp}*C</Text>
