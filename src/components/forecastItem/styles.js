@@ -8,16 +8,6 @@ const styles = StyleSheet.create({
         width: 66,
         height: 66,
     },
-    forecastDayItem: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-        borderBottomWidth:1, borderColor:'black'
-    },
-    forecastDayItemText: {
-        fontSize: 18,
-    },
 });
 
 export default styles;
