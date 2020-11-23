@@ -1,6 +1,9 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+    forecastFlatList: {
+        flex: 1,
+    },
     bigImage: {
         position: 'absolute',
         left: 40,
@@ -10,13 +13,17 @@ const styles = StyleSheet.create({
     },
     forecastDayItem: {
         flex: 1,
-        justifyContent: 'center',
+        marginTop: 20,
+        marginBottom: 20,
         alignItems: 'center',
-        padding: 20,
-        borderBottomWidth:1, borderColor:'black'
+        borderBottomWidth: 1,
+        borderColor: 'black',
     },
     forecastDayItemText: {
+        width: '100%',
+        flex: 1,
         fontSize: 18,
+        textAlign: 'center',
     },
 });
 

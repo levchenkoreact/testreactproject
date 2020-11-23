@@ -34,30 +34,31 @@ export default function WeatherForecastScreen() {
     }, [dispatch]);
 
     React.useEffect(() => {
-        setForecastData(forecastsList)
-    },[forecastsList])
+        setForecastData(forecastsList);
+    }, [forecastsList]);
 
     const renderItem = ({item}) => {
-        return <View style={styles.forecastDayItem}>
-            <TouchableOpacity onPress={() => {
-                let newArray = [...forecastData]
-                let newIndex = forecastData.indexOf(item)
-                newArray[newIndex].isExpanded = !newArray[newIndex].isExpanded
-                setForecastData(newArray)
-            }}>
+        return <View>
+            <TouchableOpacity
+                style={styles.forecastDayItem}
+                onPress={() => {
+                    let newArray = [...forecastData];
+                    let newIndex = forecastData.indexOf(item);
+                    newArray[newIndex].isExpanded = !newArray[newIndex].isExpanded;
+                    setForecastData(newArray);
+                }}>
                 <Text style={styles.forecastDayItemText}>{item.day}</Text>
                 {
                     item.isExpanded && item.forecasts.map((forecast) => {
-                        console.log("forecast");
-                        console.log(forecast);
                         return <ForecastItem item={forecast}/>;
-                    })}
+                    })
+                }
             </TouchableOpacity>
         </View>;
     };
 
     return (
-        <SafeAreaView stlye={{flex: 1}}>
+        <SafeAreaView stlye={styles.forecastFlatList}>
             {isLoading ? <ActivityIndicatorDefault color={'white'}/> : <FlatList
                 data={forecastData}
                 keyExtractor={item => item.dt}

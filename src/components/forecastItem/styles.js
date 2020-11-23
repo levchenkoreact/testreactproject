@@ -2,11 +2,19 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
     bigImage: {
-        position: 'absolute',
-        left: 40,
-        marginRight: 20,
-        width: 66,
-        height: 66,
+        width: 44,
+        height: 44,
+    },
+    forecastItemContent: {
+        paddingHorizontal:10,
+        backgroundColor:'#DAE1E7',
+        width:'100%',
+        flexDirection: 'row',
+        borderBottomWidth: 1,
+        borderTopWidth: 1,
+        borderColor: 'black',
+        alignItems:'center',
+        justifyContent: 'space-between',
     },
 });
 

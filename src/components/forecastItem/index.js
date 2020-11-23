@@ -3,7 +3,7 @@ import {Image, Text, View} from 'react-native';
 import styles from './styles';
 
 const ForecastItem = ({item}) => {
-    return <View style={{flexDirection:'row', borderBottomWidth:1, borderColor:'black'}}>
+    return <View style={styles.forecastItemContent}>
         <Text>{item.hours}</Text>
         <Image
             style={styles.bigImage}
