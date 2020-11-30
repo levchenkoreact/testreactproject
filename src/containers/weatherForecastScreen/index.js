@@ -27,9 +27,9 @@ export default function WeatherForecastScreen() {
         shallowEqual,
     );
 
-    const onRefresh = () =>{
-        dispatch(getWeatherForecastAction({cityName, units, apiKey}))
-    }
+    const onRefresh = () => {
+        dispatch(getWeatherForecastAction({cityName, units, apiKey}));
+    };
 
     const dispatch = useDispatch();
 
@@ -38,6 +38,12 @@ export default function WeatherForecastScreen() {
     }, [dispatch]);
 
     useEffect(() => {
+        if (forecastData.length !== 0) {
+            forecastData.forEach((item, index) => {
+                forecastsList[index].isExpanded = item.isExpanded;
+            });
+        }
+
         setForecastData(forecastsList);
     }, [forecastsList]);
 
