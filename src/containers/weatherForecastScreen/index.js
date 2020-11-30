@@ -27,6 +27,10 @@ export default function WeatherForecastScreen() {
         shallowEqual,
     );
 
+    const onRefresh = () =>{
+        dispatch(getWeatherForecastAction({cityName, units, apiKey}))
+    }
+
     const dispatch = useDispatch();
 
     useEffect(() => {
