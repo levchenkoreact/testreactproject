@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {shallowEqual, useDispatch, useSelector} from 'react-redux';
 import {getWeatherForecastAction} from '../../actions/weatherForecast';
 
-import {FlatList, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
+import {FlatList, RefreshControl, SafeAreaView, Text, TouchableOpacity, View} from 'react-native';
 
 import styles from './styles';
 import ActivityIndicatorDefault from '../../components/activityIndicator';
@@ -29,11 +29,11 @@ export default function WeatherForecastScreen() {
 
     const dispatch = useDispatch();
 
-    React.useEffect(() => {
+    useEffect(() => {
         dispatch(getWeatherForecastAction({cityName, units, apiKey}));
     }, [dispatch]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         setForecastData(forecastsList);
     }, [forecastsList]);
 
@@ -60,6 +60,9 @@ export default function WeatherForecastScreen() {
     return (
         <SafeAreaView stlye={styles.forecastFlatList}>
             {isLoading ? <ActivityIndicatorDefault color={'white'}/> : <FlatList
+                refreshControl={
+                    <RefreshControl refreshing={isLoading} onRefresh={onRefresh}/>
+                }
                 data={forecastData}
                 keyExtractor={item => item.dt}
                 renderItem={(item) => renderItem(item)}

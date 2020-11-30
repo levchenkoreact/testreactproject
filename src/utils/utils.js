@@ -27,7 +27,7 @@ export const getLastItemInArray = (array) => {
 };
 
 const getMonth = (index) => {
-    let months = ['January', 'February', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',
+    let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November',
         'December'];
     return months[index];
 };
